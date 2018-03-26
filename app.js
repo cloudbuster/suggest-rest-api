@@ -1,11 +1,13 @@
-let express = require('express')
-let bodyParser = require('body-parser')
-let routes = require('./routes/routes.js')
+const express = require('express')
+const bodyParser = require('body-parser')
+const routes = require('./routes/routes.js')
+const morgan = require('morgan')
 
 let app = express()
 
+app.use(morgan('dev'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

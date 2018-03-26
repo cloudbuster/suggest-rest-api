@@ -9,7 +9,7 @@ let appRouter = (app) => {
   app.get('/suggestions/:keyword', (req, res, next) => {
     let keyword = req.params.keyword;
     suggest (keyword, (err, suggestions) => {
-      res.status(200).send(suggestions)
+      res.status(200).send(JSON.stringify(suggestions))
     })
   })
 }

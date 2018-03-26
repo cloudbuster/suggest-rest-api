@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 routes(app)
 
-let server = app.listen(5000, () => {
+let server = app.listen(process.env.PORT || 3000, () => {
   console.log("App running on port.", server.address().port);
 })
 
